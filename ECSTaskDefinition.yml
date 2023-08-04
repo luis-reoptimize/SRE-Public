@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "ECS Task Definition Simple"
+
+Resources:
+  ECSTaskDefinition: 
+    Type: AWS::ECS::TaskDefinition
+    Properties: 
+      ContainerDefinitions: 
+        - Name: cl-container
+          Image: "python:latest"
+          Cpu: 2048
+          PortMappings: 
+            - ContainerPort: 443
+              Protocol: tcp
+          Memory: 4096
+          Environment:
+            - Name: APP_ENVIRONMENT 
+              Value: dev 
+            - Name: CONFIG_VERSION 
+              Value: 1.0.01
+          Essential: true
