@@ -12,4 +12,4 @@ o	APP_ENVIRONMENT     dev
 o	CONFIG_VERSION           1.0.01
 
 •	Your service should be available publicly running on port 443. 
-![image](https://github.com/CarnegieLearningWeb/SRE-Public/assets/127241408/df5f92fc-b81c-4f4b-9b55-9d83247f7044)
+
