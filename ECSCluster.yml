@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources^:
+  ECSCluster:
+    Type: 'AWS::ECS::Cluster'
+    Properties:
+      ClusterName: cl-test-cluster
+      CapacityProviders:
+        - FARGATE
+        - FARGATE_SPOT
+      DefaultCapacityProviderStrategy:
+        - CapacityProvider: FARGATE
+          Weight: 1
+        - CapacityProvider: FARGATE_SPOT
+          Weight: 1
+
+  ECSService: 
+    Type: AWS::ECS::Service
+    Properties:
+      Name: cl-test-service-01 
+      Cluster: 
+        Ref: "ECSCluster"
+      DesiredCount: 1
+      TaskDefinition: 
+        ImportValue: "ECSTaskDefinition"
